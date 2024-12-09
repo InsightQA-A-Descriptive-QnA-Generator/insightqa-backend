@@ -1,4 +1,5 @@
-tensorflow
 farm-haystack
 flask
 flask_cors
+gdown
+transformers
