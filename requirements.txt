@@ -5,3 +5,4 @@ gdown
 transformers
 sentencepiece
 tensorflow
+torch
