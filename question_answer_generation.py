@@ -27,9 +27,9 @@ def question_init(context):
     return questions
 
 def generate_answer(context, question):
-    input_text = f"Answer the following question: {question} based on the context: {context}"
+    input_text = f"Answer the following question: {question} in a long paragraph based on the context: {context}"
     input_tokens = tokenizer(input_text, return_tensors='pt', padding=True, truncation=True, max_length=1024)
-    outputs = model.generate(input_ids=input_tokens['input_ids'], attention_mask=input_tokens['attention_mask'], num_beams=5, max_length=1000, early_stopping=True)
+    outputs = model.generate(input_ids=input_tokens['input_ids'], attention_mask=input_tokens['attention_mask'], num_beams=5, min_length=70, max_length=2000, early_stopping=True)
     generated_text = tokenizer.decode(outputs[0], skip_special_tokens=True)
     return generated_text
 
